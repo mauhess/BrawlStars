@@ -39,3 +39,18 @@ duoShowdown
         "mode": "duoShowdown",
         "map": "Feast or Famine"
       }
+
+duels
+??
+
+candiates of the day
+ "event": {
+        "id": 0,
+        "map": null
+      }
+
+winner of the day
+ "event": {
+        "id": 0,
+        "map": null
+      }
