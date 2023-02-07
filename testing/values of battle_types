@@ -1,0 +1,41 @@
+bounty
+"event": {
+        "id": 15000081,
+        "mode": "bounty",
+        "map": "Excel"
+      }
+
+brawl ball
+"event": {
+        "id": 15000143,
+        "mode": "brawlBall",
+        "map": "Beach Ball"
+      }
+
+heist
+"event": {
+        "id": 15000019,
+        "mode": "heist",
+        "map": "Safe Zone"
+      }
+
+gemGrab
+ "event": {
+        "id": 15000008,
+        "mode": "gemGrab",
+        "map": "Crystal Arcade"
+      }
+
+soloShowdown
+ "event": {
+        "id": 15000016,
+        "mode": "soloShowdown",
+        "map": "Feast or Famine"
+      }
+
+duoShowdown
+ "event": {
+        "id": 15000037,
+        "mode": "duoShowdown",
+        "map": "Feast or Famine"
+      }
