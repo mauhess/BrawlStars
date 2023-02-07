@@ -69,8 +69,8 @@ def get_battlelog(tag):
                 print(
                     str(i + 1) + ": " + battle_mode + "_" + battle_type + ", map: " + battle_map + ", rank: " + battle_rank + ", Trophies:  " + str(
                         battle_trophy) + ", trophies started with: " + trophies_start + ", champion played: " + champ_played)
-
-get_battlelog(CONC_Modus_tag)
+print(functions.duoShowdown())
+#get_battlelog(CONC_Modus_tag)
 #get_battlelog(UTrash_tag)
 
 
