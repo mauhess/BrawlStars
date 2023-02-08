@@ -54,3 +54,21 @@ winner of the day
         "id": 0,
         "map": null
       }
+
+power league
+ no "trophyChange"
+
+
+knockout
+  "event": {
+         "id": 15000501,
+         "mode": "knockout",
+         "map": "Riverside"
+       }
+
+hotZone
+"event": {
+        "id": 15000527,
+        "mode": "hotZone",
+        "map": "Open Zone"
+      }

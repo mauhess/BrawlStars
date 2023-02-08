@@ -1,6 +1,6 @@
 import requests
 import functions
-import testing.functions
+import testing.soloShowdown
 
 #terminal
 #curl -H 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjY5NTE5YmZmLTAwZjMtNDExNC1iMzQzLWM5ZmM2NjQ3MTM3MSIsImlhdCI6MTY3NTcxMDgyMCwic3ViIjoiZGV2ZWxvcGVyL2I5OGExYTljLTYzYzctYjJiMS04ZTcxLWU2NDcxNWRlYzg0NSIsInNjb3BlcyI6WyJicmF3bHN0YXJzIl0sImxpbWl0cyI6W3sidGllciI6ImRldmVsb3Blci9zaWx2ZXIiLCJ0eXBlIjoidGhyb3R0bGluZyJ9LHsiY2lkcnMiOlsiMTg4LjYxLjE3Ni4yMTciXSwidHlwZSI6ImNsaWVudCJ9XX0.wk6HfuFFFclQIzQ-gkYip1ckvT13h4VCthv05YijkPI04k5zPZmj8DugOXe1HC_TDB_suW027AsTdhrFt--faA' https://api.brawlstars.com/v1/players/%23L8VURLLP/battlelog
@@ -14,7 +14,7 @@ def get_response(tag):
     }
     return requests.get(url, headers=headers).json()
 
-response = get_response(UTrash_tag)
+response = get_response(CONC_Modus_tag)
 
 def get_from_battle(i, value):
     return response["items"][i]["battle"][value]
@@ -35,6 +35,8 @@ def search_player_solo(i, tag):
 
 def get_battlelog(tag):
     for i in range(25):
+        print(i)
+        testing.soloShowdown.main(response, tag, i)
         battle_mode = get_from_battle(i, "mode")
         battle_type = get_from_battle(i, "type")
         battle_rank = str(get_from_battle(i, "rank"))
@@ -69,8 +71,8 @@ def get_battlelog(tag):
                 print(
                     str(i + 1) + ": " + battle_mode + "_" + battle_type + ", map: " + battle_map + ", rank: " + battle_rank + ", Trophies:  " + str(
                         battle_trophy) + ", trophies started with: " + trophies_start + ", champion played: " + champ_played)
-print(functions.duoShowdown())
-#get_battlelog(CONC_Modus_tag)
+#print(functions.duoShowdown())
+get_battlelog(CONC_Modus_tag)
 #get_battlelog(UTrash_tag)
 
 
