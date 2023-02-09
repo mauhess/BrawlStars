@@ -1,10 +1,10 @@
 import requests
 import functions
 import testing.soloShowdown
+import testing.googlesheet
 global response
-CONC_Modus_tag = "#L8VURLLP"
-UTrash_tag = "#PGCVYLG9Y"
-
+CONC_Modus = ["#L8VURLLP", 0] # tag, google-sheet-id
+UTrash = ["#PGCVYLG9Y", 543582620] # tag, google-sheet-id
 
 def get_response(tag):
     url = 'https://api.brawlstars.com/v1/players/%23'+tag[1: ]+'/battlelog'
@@ -26,20 +26,20 @@ def search_player_duo(i, tag):
             return response["items"][i]["battle"]["teams"][j][1]
     return -1
 
-def get_battlelog(tag):
+def get_battlelog(player):
     for i in range(25):
-        print(i)
-        testing.soloShowdown.main(response, tag, i)
+        print("Index: " + str(i))
+        testing.soloShowdown.main(response, player, i)
+        """
         battle_mode = get_from_battle(i, "mode")
         battle_type = get_from_battle(i, "type")
         battle_rank = str(get_from_battle(i, "rank"))
         battle_map = response["items"][i]["event"]["map"]
-        player = "x"
+        player_infos = "x"
         if battle_mode == "duoShowdown":
-            player = search_player_duo(i, tag)
-
-        champ_played = player["brawler"]["name"]
-        trophies_start = str(player["brawler"]["trophies"])
+            player_infos = search_player_duo(i, player[0])
+        champ_played = player_infos["brawler"]["name"]
+        trophies_start = str(player_infos["brawler"]["trophies"])
         try:
             battle_trophy = str(get_from_battle(i, "trophyChange"))
         except:  # no trophy change
@@ -63,10 +63,16 @@ def get_battlelog(tag):
                 print(
                     str(i + 1) + ": " + battle_mode + "_" + battle_type + ", map: " + battle_map + ", rank: " + battle_rank + ", Trophies:  " + str(
                         battle_trophy) + ", trophies started with: " + trophies_start + ", champion played: " + champ_played)
+"""
 
-response = get_response(CONC_Modus_tag)
-get_battlelog(CONC_Modus_tag)
-#get_battlelog(UTrash_tag)
+try:
+    response = get_response(CONC_Modus[0])
+    get_battlelog(CONC_Modus)
+except:
+    response = get_response(UTrash[0])
+    get_battlelog(UTrash)
+
+
 
 
 
