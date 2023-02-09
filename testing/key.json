@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "brawlstars-377310",
+  "private_key_id": "f18e237dae55b9e2bdf76ed65cd73d3bfb1084c9",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCny/ycxgqPai1e\nPQOa6TjIUxXNqAIFBhSBCRsT9ssjSmZkMC4iHB391P/cQvFpCDsD0Q1ak8XzGRz7\n4inlqGM7I1XSLqR0OObOp+2AOtDbW1v6oB18y8IsrKknvLxqm1tbJVh30pogsUj0\nfwiQRPxasq3FIAZC9xZobHNk+hzdugk8AUMK30uEMwlugLPRknauxahIrR9L1kEb\nuGZdj+UkNAC8C2Ym3JlqHM1Kogm0utvp9oaaMDHz4n6g0mfO4Rp84D9evTSk2/a3\nYc2S4HGPC+dFzvUdnl9NukHI1Lv6lVJcY6vg3O93Wb3gqxdMqkx00KXH2k/H7A4e\nbwe0U2DVAgMBAAECggEAHepmHfxH7zQ+pO3LWf/JHhwEB9+zhnpERxIcyAUox+Cw\nmx2k5/Nr3HCwcjBkMnXjcaWAlDzC3rnEO1sh3Z5VHLrKxveGXes0KTVyyDkUOfuS\njT8lKrX4JzdcTCefzwDmO3yPxoMfdAMvjtmkKPaHqFLxXLL+MsuzLMhjFWZrJZOG\nKJBOMph7HYjNXuPpFtKpZXqMg7Rcuoe2K76PvTDx+r43K5Mudi+8CxxOU+fvODAa\nc1TTqH6Mx+ld0cg1vBToeGL6MEu+D9X+LqYSnEOZ+zR1L29BWSAhUCjoViAg+wqn\nFMqJRAXzC71HwEbFVwBvMZvDuVCwMkruqDULN4S4oQKBgQDrUMfY5BWQVwnRJI2n\nsRZtnleXKTDdIeDjqhtEwM0tOrivkth/6+EjiRRFkLnxlcxfXVeu4yf/W2KMOrtU\nYDdA9YPZL7ojqHAbva1ks/mPIiKvB9PXZyrSjjtcg/+Bcp0s4Dk7yb8y5H6LjLxB\nZeP0h49pY5sQmX0stABaVpmpIQKBgQC2i9tmOIrB9nAB1U5lOT4boTNMpBeGItP/\nVifakdQ8r975z55EhxqLpPW40OaVzc2oNih/NAGzaPJdrVLn5BunXBcUjA25HtGM\nqqMzA7HfrKzqT6nYpmiKnGb5wPxbdp6JuUfbJVu6npqNRNTECfpWMekDnxfkGN2U\nwXLFQea9NQKBgA7JNqWEP26gaXeAyn3c/MHKj0pqRi2+8Tic+bWqP7o11GED4yK2\nmaD3/hQY8fYiKYNchCPzFhJPlbOmBRtaKF6mjrBY9WNENDcqBfkr7eR2iqNg5IjG\nbMRqN4SqrqVdpE6rkC0XkjIKdYEjSLj7RAWbdwFyRs4WNu1WKieDBYjBAoGAGpm6\nuOSYY7dTjxDUQa/buw78eLiYrPU6S0T0vcbuVIGUTnbQq0+8sIizPeFDGKVKyK5L\nrG2ZqdkrKDdvk1cMKJEk09uszEMPah4bdf2d1+hDskk1iNqG9VvhLZfPrkxUweD7\n9ZU2DrW588gJ8R87GYBgYiS2yIhPEbQ200PNKdkCgYAzaiztYjwDQufgwKtOqhOW\nRJPXaed2wl+L9haQg+fbkyfaLDiRsyoC8YIFDhT/cxfHiONGbkICbuAOjfYKMQEx\n9sgkuRz6uqbKwYw1yIfhwKoU86IGQQ5LV2aVjlOdR+do6gMpr+AZuQMNLUKLMwNB\nyl1vjhOgycvVRQ/ZIxsDWg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "maurice@brawlstars-377310.iam.gserviceaccount.com",
+  "client_id": "116782607192815710649",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/maurice%40brawlstars-377310.iam.gserviceaccount.com"
+}
