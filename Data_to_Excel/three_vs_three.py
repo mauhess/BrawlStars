@@ -1,5 +1,5 @@
 global response
-import testing.googlesheet
+import Data_to_Excel.googlesheet
 
 def get_from_battle(i, value, response):
     return response["items"][i]["battle"][value]
@@ -8,7 +8,7 @@ def main(response, player, i):
     battle_time = response["items"][i]["battleTime"]
     battle_time = battle_time[0:4] + "-" + battle_time[4:6] + "-" + battle_time[6:8] + " " + battle_time[9:11] + ":" + battle_time[11:13] + ":" + battle_time[13:]
     bt = [str(battle_time)]
-    timestamps = testing.googlesheet.get_timestamps(player) # gets all timestamps of stored battles
+    timestamps = Data_to_Excel.googlesheet.get_timestamps(player) # gets all timestamps of stored battles
     if not(bt in timestamps): # checks if battle is already in excel file
         battle_id = response["items"][i]["event"]["id"]
         battle_mode = get_from_battle(i, "mode", response)
@@ -44,4 +44,4 @@ def main(response, player, i):
         except:  # no trophy change
             battle_trophy = "0"
         data = [[battle_time, battle_id, battle_mode, battle_type, battle_map, battle_result, champ_played, trophies_start, battle_trophy, mate_one_tag, mate_one_champ_player, mate_two_tag, mate_two_champ_player]]
-        testing.googlesheet.add_data(player, data)
+        Data_to_Excel.googlesheet.add_data(player, data)

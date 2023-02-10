@@ -1,8 +1,8 @@
 import requests
-import testing.soloShowdown
-import testing.duoShowdown
-import testing.three_vs_three
-import testing.googlesheet
+import Data_to_Excel.soloShowdown
+import Data_to_Excel.duoShowdown
+import Data_to_Excel.three_vs_three
+import Data_to_Excel.googlesheet
 import time
 response = 0
 CONC_Modus = ["#L8VURLLP", 0] # tag, google-sheet-id
@@ -27,7 +27,7 @@ def get_response(tag):
 
 
 def get_battlelog(player, response):
-    timestamps = testing.googlesheet.get_timestamps(player) # gets all timestamps of stored battles
+    timestamps = Data_to_Excel.googlesheet.get_timestamps(player) # gets all timestamps of stored battles
     for i in range(25):
         battle_time = response["items"][i]["battleTime"]
         battle_time = battle_time[0:4] + "-" + battle_time[4:6] + "-" + battle_time[6:8] + " " + battle_time[9:11] + ":" + battle_time[11:13] + ":" + battle_time[13:]
@@ -37,23 +37,23 @@ def get_battlelog(player, response):
                 batte_mode = response["items"][i]["battle"]["mode"]
                 match batte_mode:
                     case "soloShowdown":
-                        testing.soloShowdown.main(response, player, i)
+                        Data_to_Excel.soloShowdown.main(response, player, i)
                         #print("Index: " + str(i) + " stored in Excel")
                     case "duoShowdown":
-                        testing.duoShowdown.main(response, player, i)
+                        Data_to_Excel.duoShowdown.main(response, player, i)
                         #print("Index: " + str(i) + " stored in Excel")
                     case "gemGrab":
-                        testing.three_vs_three.main(response, player, i)
+                        Data_to_Excel.three_vs_three.main(response, player, i)
                     case "knockout":
-                        testing.three_vs_three.main(response, player, i)
+                        Data_to_Excel.three_vs_three.main(response, player, i)
                     case "bounty":
-                        testing.three_vs_three.main(response, player, i)
+                        Data_to_Excel.three_vs_three.main(response, player, i)
                     case "hotZone":
-                        testing.three_vs_three.main(response, player, i)
+                        Data_to_Excel.three_vs_three.main(response, player, i)
                     case "brawlBall":
-                        testing.three_vs_three.main(response, player, i)
+                        Data_to_Excel.three_vs_three.main(response, player, i)
                     case "heist":
-                        testing.three_vs_three.main(response, player, i)
+                        Data_to_Excel.three_vs_three.main(response, player, i)
 
 
 
