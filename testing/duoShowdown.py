@@ -1,7 +1,6 @@
 global response
 import testing.googlesheet
 
-
 def get_from_battle(i, value, response):
     return response["items"][i]["battle"][value]
 
@@ -17,17 +16,21 @@ def main(response, player, i):
         battle_rank = str(get_from_battle(i, "rank", response))
         battle_map = response["items"][i]["event"]["map"]
         player_battle_infos = "__xx__"
-        for j in range(10):
-            if response["items"][i]["battle"]["players"][j]["tag"] == player[0]:
-                player_battle_infos = response["items"][i]["battle"]["players"][j]
+        battle_mate = "__XX__"
+        for j in range(5):
+            if response["items"][i]["battle"]["teams"][j][0]["tag"] == player[0]:
+                player_battle_infos = response["items"][i]["battle"]["teams"][j][0]
+                battle_mate = response["items"][i]["battle"]["teams"][j][1]
+            if response["items"][i]["battle"]["teams"][j][1]["tag"] == player[0]:
+                player_battle_infos = response["items"][i]["battle"]["teams"][j][1]
+                battle_mate = response["items"][i]["battle"]["teams"][j][0]
         champ_played = player_battle_infos["brawler"]["name"]
         trophies_start = str(player_battle_infos["brawler"]["trophies"])
+        battle_mate_tag = battle_mate["tag"]
+        battle_mate_brawler = battle_mate["brawler"]["name"]
         try:
             battle_trophy = str(get_from_battle(i, "trophyChange", response))
         except:  # no trophy change
             battle_trophy = "0"
-        data = [[battle_time, battle_id, battle_mode, battle_type, battle_map, battle_rank, champ_played, trophies_start, battle_trophy]]
+        data = [[battle_time, battle_id, battle_mode, battle_type, battle_map, battle_rank, champ_played, trophies_start, battle_trophy, battle_mate_tag, battle_mate_brawler]]
         testing.googlesheet.add_data(player, data)
-
-
-# WORKS
