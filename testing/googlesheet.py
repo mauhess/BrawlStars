@@ -2,7 +2,7 @@ from googleapiclient.discovery import build
 from google.oauth2 import service_account
 
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
-SERVICE_ACCOUNT_FILE = 'key.json'
+SERVICE_ACCOUNT_FILE = '/Users/mauricehess/Documents/BrawlStars_key.json'
 creds = None
 creds = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
 SPREADSHEET_ID = '1AfQCLqsrDbbVnPznqktVOAGM0uWdItfh6wNi8toYIQE'

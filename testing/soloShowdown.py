@@ -9,9 +9,9 @@ def get_from_battle(i, value, response):
 def main(response, player, i):
     battle_time = response["items"][i]["battleTime"]
     battle_time = battle_time[0:4] + "-" + battle_time[4:6] + "-" + battle_time[6:8] + " " + battle_time[9:11] + ":" + battle_time[11:13] + ":" + battle_time[13:]
+    bt = [str(battle_time)]
+    print(bt)
     timestamps = testing.googlesheet.get_timestamps(player) # gets all timestamps of stored battles
-    bt = str(battle_time)
-    bt = [bt]
     if not(bt in timestamps): # checks if battle is already in excel file
         battle_id = response["items"][i]["event"]["id"]
         battle_mode = get_from_battle(i, "mode", response)
