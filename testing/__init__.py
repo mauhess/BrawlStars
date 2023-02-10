@@ -3,6 +3,7 @@ import testing.soloShowdown
 import testing.duoShowdown
 import testing.three_vs_three
 import testing.googlesheet
+import time
 response = 0
 CONC_Modus = ["#L8VURLLP", 0] # tag, google-sheet-id
 UTrash = ["#PGCVYLG9Y", 543582620] # tag, google-sheet-id
@@ -70,6 +71,8 @@ def main_jan():
     get_battlelog(UTrash, response)
 
 main_jan()
+#main_maurice()
+print(time.process_time())
 
 
 
