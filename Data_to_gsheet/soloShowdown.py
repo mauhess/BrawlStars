@@ -6,7 +6,6 @@ def get_from_battle(value, response):
     return response["battle"][value]
 
 def main(response, player, battle_time):
-    print(response)
     battle_id = response["event"]["id"]
     battle_mode = get_from_battle("mode", response)
     battle_type = get_from_battle("type", response)
@@ -24,7 +23,6 @@ def main(response, player, battle_time):
         battle_trophy = "0"
     data = [[battle_time, battle_id, battle_mode, battle_type, battle_map, battle_rank, champ_played, trophies_start, battle_trophy]]
     Data_to_gsheet.googlesheet.add_data(player, data)
-    print(data)
 
 
 # WORKS
