@@ -50,3 +50,5 @@ def add_data(player, data):
 def get_timestamps(player):
     return get_values_from_gsheet(SPREADSHEET_ID, player[0] + "!A:A")
 
+
+
