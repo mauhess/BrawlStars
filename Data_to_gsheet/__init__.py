@@ -4,7 +4,6 @@ import Data_to_gsheet.duoShowdown
 import Data_to_gsheet.three_vs_three
 import Data_to_gsheet.googlesheet
 import time
-response = 0
 CONC_Modus = ["#L8VURLLP", 0] # tag, google-sheet-id
 UTrash = ["#PGCVYLG9Y", 543582620] # tag, google-sheet-id
 
@@ -34,33 +33,40 @@ def get_response_hotspot_maurice(tag):
 
 
 def get_battlelog(player, response):
-    timestamps = Data_to_gsheet.googlesheet.get_timestamps(player) # gets all timestamps of stored battles
-    for i in range(24,-1,-1):
-        battle_time = response["items"][i]["battleTime"]
-        battle_time = battle_time[0:4] + "-" + battle_time[4:6] + "-" + battle_time[6:8] + " " + battle_time[9:11] + ":" + battle_time[11:13] + ":" + battle_time[13:]
-        bt = [str(battle_time)]
-        if not(bt in timestamps):
-            if (response["items"][i]["event"]["id"] != 0):
-                batte_mode = response["items"][i]["battle"]["mode"]
-                match batte_mode:
-                    case "soloShowdown":
-                        Data_to_gsheet.soloShowdown.main(response["items"][i], player, battle_time)
-                        #print("Index: " + str(i) + " stored in Excel")
-                    case "duoShowdown":
-                        Data_to_gsheet.duoShowdown.main(response["items"][i], player, battle_time)
-                        #print("Index: " + str(i) + " stored in Excel")
-                    case "gemGrab":
-                        Data_to_gsheet.three_vs_three.main(response["items"][i], player, battle_time)
-                    case "knockout":
-                        Data_to_gsheet.three_vs_three.main(response["items"][i], player, battle_time)
-                    case "bounty":
-                        Data_to_gsheet.three_vs_three.main(response["items"][i], player, battle_time)
-                    case "hotZone":
-                        Data_to_gsheet.three_vs_three.main(response["items"][i], player, battle_time)
-                    case "brawlBall":
-                        Data_to_gsheet.three_vs_three.main(response["items"][i], player, battle_time)
-                    case "heist":
-                        Data_to_gsheet.three_vs_three.main(response["items"][i], player, battle_time)
+    first_timestamp_gsheet = Data_to_gsheet.googlesheet.get_first_timestamp(player)
+    first_timestamp_battlelog = response["items"][0]["battleTime"]
+    first_timestamp_battlelog = first_timestamp_battlelog[0:4] + "-" + first_timestamp_battlelog[4:6] + "-" + first_timestamp_battlelog[6:8] + " " + first_timestamp_battlelog[9:11] + ":" + first_timestamp_battlelog[11:13] + ":" + first_timestamp_battlelog[13:]
+    first_timestamp_battlelog = [[str(first_timestamp_battlelog)]]
+    if (first_timestamp_battlelog == first_timestamp_gsheet):
+        print("keine neuen Kämpfe")
+    else:
+        timestamps = Data_to_gsheet.googlesheet.get_timestamps(player) # gets all timestamps of stored battles
+        for i in range(24,-1,-1):
+            battle_time = response["items"][i]["battleTime"]
+            battle_time = battle_time[0:4] + "-" + battle_time[4:6] + "-" + battle_time[6:8] + " " + battle_time[9:11] + ":" + battle_time[11:13] + ":" + battle_time[13:]
+            bt = [str(battle_time)]
+            if not(bt in timestamps):
+                if (response["items"][i]["event"]["id"] != 0):
+                    batte_mode = response["items"][i]["battle"]["mode"]
+                    match batte_mode:
+                        case "soloShowdown":
+                            Data_to_gsheet.soloShowdown.main(response["items"][i], player, battle_time)
+                            #print("Index: " + str(i) + " stored in Excel")
+                        case "duoShowdown":
+                            Data_to_gsheet.duoShowdown.main(response["items"][i], player, battle_time)
+                            #print("Index: " + str(i) + " stored in Excel")
+                        case "gemGrab":
+                            Data_to_gsheet.three_vs_three.main(response["items"][i], player, battle_time)
+                        case "knockout":
+                            Data_to_gsheet.three_vs_three.main(response["items"][i], player, battle_time)
+                        case "bounty":
+                            Data_to_gsheet.three_vs_three.main(response["items"][i], player, battle_time)
+                        case "hotZone":
+                            Data_to_gsheet.three_vs_three.main(response["items"][i], player, battle_time)
+                        case "brawlBall":
+                            Data_to_gsheet.three_vs_three.main(response["items"][i], player, battle_time)
+                        case "heist":
+                            Data_to_gsheet.three_vs_three.main(response["items"][i], player, battle_time)
 
 
 
