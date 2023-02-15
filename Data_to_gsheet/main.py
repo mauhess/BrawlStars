@@ -75,27 +75,22 @@ def get_battlelog(player, response):
                             Data_to_gsheet.three_vs_three.main(response["items"][i], player, battle_time)
 
 
-def main_maurice():
+def maurice():
     response = get_response(CONC_Modus[0])
     get_battlelog(CONC_Modus, response)
     response = get_response(UTrash[0])
     get_battlelog(UTrash, response)
 
 
-def main_jan():
+def jan():
     response = get_response_jan(CONC_Modus[0])
     get_battlelog(CONC_Modus, response)
     response = get_response_jan(UTrash[0])
     get_battlelog(UTrash, response)
 
 
-def main_maurice_hotspot():
+def maurice_hotspot():
     response = get_response_hotspot_maurice(CONC_Modus[0])
     get_battlelog(CONC_Modus, response)
     response = get_response_hotspot_maurice(UTrash[0])
     get_battlelog(UTrash, response)
-
-
-# main_maurice_hotspot()
-# main_jan()
-main_maurice()
