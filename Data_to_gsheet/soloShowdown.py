@@ -23,6 +23,3 @@ def main(response, player, battle_time):
         battle_trophy = "0"
     data = [[battle_time, battle_id, battle_mode, battle_type, battle_map, battle_rank, champ_played, trophies_start, battle_trophy]]
     Data_to_gsheet.googlesheet.add_data(player, data)
-
-
-# WORKS

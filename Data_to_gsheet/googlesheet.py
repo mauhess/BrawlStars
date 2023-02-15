@@ -16,23 +16,27 @@ def get_values_from_gsheet(spreadsheetID, range):
     return result.get('values', [])
 
 
-#request = sheet.values().update(spreadsheetId=SPREADSHEET_ID, range=range, valueInputOption="USER_ENTERED", body={"values": data}).execute()
+# request = sheet.values().update(spreadsheetId=SPREADSHEET_ID, range=range, valueInputOption="USER_ENTERED", body={"values": data}).execute()
 def update_data(range, v):
-    sheet.values().update(spreadsheetId=SPREADSHEET_ID, range=range, valueInputOption="USER_ENTERED", body={"values": v}).execute()
+    sheet.values().update(spreadsheetId=SPREADSHEET_ID, range=range, valueInputOption="USER_ENTERED",
+                          body={"values": v}).execute()
+
 
 def append(range, data):
-    request = sheet.values().append(spreadsheetId=SPREADSHEET_ID, range=range, valueInputOption="USER_ENTERED", body={"values": data}).execute()
+    request = sheet.values().append(spreadsheetId=SPREADSHEET_ID, range=range, valueInputOption="USER_ENTERED",
+                                    body={"values": data}).execute()
+
 
 def insert_row(sheetID):
     request_body = {
         'requests': [
             {
                 'insertDimension': {
-                    'range' : {
-                    'sheetId' : sheetID,
-                    'dimension': 'ROWS',
-                    'startIndex': 1,
-                    'endIndex': 2
+                    'range': {
+                        'sheetId': sheetID,
+                        'dimension': 'ROWS',
+                        'startIndex': 1,
+                        'endIndex': 2
                     }
                 }
             }
@@ -43,15 +47,15 @@ def insert_row(sheetID):
         body=request_body
     ).execute()
 
+
 def add_data(player, data):
     insert_row(player[1])
-    update_data(player[0]+"!A2", data)
+    update_data(player[0] + "!A2", data)
+
 
 def get_timestamps(player):
     return get_values_from_gsheet(SPREADSHEET_ID, player[0] + "!A:A")
 
+
 def get_first_timestamp(player):
     return get_values_from_gsheet(SPREADSHEET_ID, player[0] + "!A2")
-
-
-
