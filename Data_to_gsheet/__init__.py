@@ -55,14 +55,12 @@ def get_battlelog(player, response):
             bt = [str(battle_time)]
             if not (bt in timestamps):
                 if (response["items"][i]["event"]["id"] != 0):
-                    batte_mode = response["items"][i]["battle"]["mode"]
-                    match batte_mode:
+                    battle_mode = response["items"][i]["battle"]["mode"]
+                    match battle_mode:
                         case "soloShowdown":
                             Data_to_gsheet.soloShowdown.main(response["items"][i], player, battle_time)
-                            # print("Index: " + str(i) + " stored in Excel")
                         case "duoShowdown":
                             Data_to_gsheet.duoShowdown.main(response["items"][i], player, battle_time)
-                            # print("Index: " + str(i) + " stored in Excel")
                         case "gemGrab":
                             Data_to_gsheet.three_vs_three.main(response["items"][i], player, battle_time)
                         case "knockout":

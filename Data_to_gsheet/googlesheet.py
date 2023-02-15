@@ -54,7 +54,7 @@ def add_data(player, data):
 
 
 def get_timestamps(player):
-    return get_values_from_gsheet(SPREADSHEET_ID, player[0] + "!A:A")
+    return get_values_from_gsheet(SPREADSHEET_ID, player[0] + "!A:A26")
 
 
 def get_first_timestamp(player):
