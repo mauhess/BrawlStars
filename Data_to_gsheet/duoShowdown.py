@@ -1,5 +1,5 @@
 global response
-import Data_to_gsheet.googlesheet
+import googlesheet
 
 def get_from_battle(value, response):
     return response["battle"][value]
@@ -28,4 +28,4 @@ def main(response, player, battle_time):
     except:  # no trophy change
         battle_trophy = "0"
     data = [[battle_time, battle_id, battle_mode, battle_type, battle_map, battle_rank, champ_played, trophies_start, battle_trophy, battle_mate_tag, battle_mate_brawler]]
-    Data_to_gsheet.googlesheet.add_data(player, data)
+    googlesheet.add_data(player, data)

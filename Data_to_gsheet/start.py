@@ -1,12 +1,15 @@
 import main
 
-try:
-    main.maurice()
-except:
+def start_method():
     try:
-        main.jan()
+        main.maurice()
     except:
         try:
-            main.maurice_hotspot()
+            main.jan()
         except:
-            print("fail")
+            try:
+                main.maurice_hotspot()
+            except:
+                print("fail")
+
+start_method()
