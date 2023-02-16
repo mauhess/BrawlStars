@@ -1,5 +1,12 @@
 import main
 
-#main.jan()
-main.maurice()
-#main.maurice_hotspot()
+try:
+    main.maurice()
+except:
+    try:
+        main.jan()
+    except:
+        try:
+            main.maurice_hotspot()
+        except:
+            print("fail")
