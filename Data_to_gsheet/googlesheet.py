@@ -16,7 +16,6 @@ def get_values_from_gsheet(spreadsheetID, range):
     return result.get('values', [])
 
 
-# request = sheet.values().update(spreadsheetId=SPREADSHEET_ID, range=range, valueInputOption="USER_ENTERED", body={"values": data}).execute()
 def update_data(range, v):
     sheet.values().update(spreadsheetId=SPREADSHEET_ID, range=range, valueInputOption="USER_ENTERED",
                           body={"values": v}).execute()

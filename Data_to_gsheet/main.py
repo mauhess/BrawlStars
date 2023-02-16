@@ -44,8 +44,8 @@ def get_battlelog(player, response):
                                 + first_timestamp_battlelog[11:13] \
                                 + ":" + first_timestamp_battlelog[13:]
     first_timestamp_battlelog = [[str(first_timestamp_battlelog)]]
-    if (first_timestamp_battlelog == first_timestamp_gsheet):
-        print("keine neuen Kämpfe")
+    if first_timestamp_battlelog == first_timestamp_gsheet:
+        print("no new battles")
     else:
         timestamps = googlesheet.get_timestamps(player)  # gets all timestamps of stored battles
         for i in range(24, -1, -1):
@@ -54,23 +54,23 @@ def get_battlelog(player, response):
                           + battle_time[9:11] + ":" + battle_time[11:13] + ":" + battle_time[13:]
             bt = [str(battle_time)]
             if not (bt in timestamps):
-                if (response["items"][i]["event"]["id"] != 0):
+                if response["items"][i]["event"]["id"] != 0:
                     battle_mode = response["items"][i]["battle"]["mode"]
-                    if (battle_mode == "soloShowdown"):
+                    if battle_mode == "soloShowdown":
                         soloShowdown.main(response["items"][i], player, battle_time)
-                    elif (battle_mode == "duoShowdown"):
+                    elif battle_mode == "duoShowdown":
                         duoShowdown.main(response["items"][i], player, battle_time)
-                    elif (battle_mode == "gemGrab"):
+                    elif battle_mode == "gemGrab":
                         three_vs_three.main(response["items"][i], player, battle_time)
-                    elif (battle_mode == "knockout"):
+                    elif battle_mode == "knockout":
                         three_vs_three.main(response["items"][i], player, battle_time)
-                    elif (battle_mode == "bounty"):
+                    elif battle_mode == "bounty":
                         three_vs_three.main(response["items"][i], player, battle_time)
-                    elif (battle_mode == "hotZone"):
+                    elif battle_mode == "hotZone":
                         three_vs_three.main(response["items"][i], player, battle_time)
-                    elif (battle_mode == "brawlBall"):
+                    elif battle_mode == "brawlBall":
                         three_vs_three.main(response["items"][i], player, battle_time)
-                    elif (battle_mode == "heist"):
+                    elif battle_mode == "heist":
                         three_vs_three.main(response["items"][i], player, battle_time)
                     else:
                         print(1)

@@ -1,5 +1,6 @@
 import main
 
+
 def start_method():
     try:
         main.maurice()
@@ -11,5 +12,6 @@ def start_method():
                 main.maurice_hotspot()
             except:
                 print("fail")
+
 
 start_method()
