@@ -7,6 +7,7 @@ import googlesheet
 CONC_Modus = ["#L8VURLLP", 0]  # tag, google-sheet-id
 UTrash = ["#PGCVYLG9Y", 543582620]  # tag, google-sheet-id
 joel = ["#LQ92Q9PR", 1776203116]
+till = ["#G9CQOLQOR", 882484657]
 
 
 def get_response_jan(tag):
@@ -84,6 +85,8 @@ def maurice():
     get_battlelog(UTrash, response)
     response = get_response(joel[0])
     get_battlelog(joel, response)
+    response = get_response(till[0])
+    get_battlelog(till, response)
 
 
 def jan():
@@ -93,6 +96,8 @@ def jan():
     get_battlelog(UTrash, response)
     response = get_response_jan(joel[0])
     get_battlelog(joel, response)
+    response = get_response_jan(till[0])
+    get_battlelog(till, response)
 
 
 def maurice_hotspot():
@@ -103,3 +108,7 @@ def maurice_hotspot():
     get_battlelog(UTrash, response)
     response = get_response_hotspot_maurice(joel[0])
     get_battlelog(joel, response)
+    response = get_response_hotspot_maurice(till[0])
+    get_battlelog(till, response)
+
+
